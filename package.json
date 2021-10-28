@@ -1,0 +1,20 @@
+{
+  "name": "vercel-serverless-openapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "local": "vercel dev",
+    "pro": "vercel --prod"
+  },
+  "author": "c",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-config-wqdy": "^0.0.2"
+  },
+  "dependencies": {
+    "got": "^11.8.2",
+    "mongodb": "^4.1.3",
+    "vercel": "^23.1.2"
+  }
+}
