@@ -5,16 +5,16 @@
   "main": "index.js",
   "scripts": {
     "local": "vercel dev",
-    "pro": "vercel --prod"
+    "prod": "vercel --prod"
   },
   "author": "c",
   "license": "MIT",
   "devDependencies": {
-    "eslint-config-wqdy": "^0.0.2"
+    "eslint-config-wqdy": "^0.0.2",
+    "vercel": "^23.1.2"
   },
   "dependencies": {
     "got": "^11.8.2",
-    "qs": "^6.10.1",
-    "vercel": "^23.1.2"
+    "qs": "^6.10.1"
   }
 }

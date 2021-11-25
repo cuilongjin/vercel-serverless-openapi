@@ -4,9 +4,9 @@
       "handle": "filesystem"
     },
     {
-      "src": "/(.*)",
-      "status": 200,
-      "dest": "/api/helloworld.js"
+      "src": "/tg(.*)",
+      "methods": ["GET"],
+      "dest": "api/tg/index.js"
     },
     {
       "src": "/(.*)",
