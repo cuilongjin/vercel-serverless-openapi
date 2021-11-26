@@ -5,18 +5,9 @@ vercel dev
 vercel --prod
 ```
 
-接入URLs
+vercel 文档：https://vercel.com/docs/cli#project-configuration/rewrites
+火币接口文档：https://huobiapi.github.io/docs/spot/v1/cn/#k
 
-https://vercel-serverless-openapi.vercel.app
+https://vercel-serverless-openapi.vercel.app/api.huobi.pro/market/history/kline?symbol=btcusdt&period=1day&size=1
 
-火币接口
-
-https://huobiapi.github.io/docs/spot/v1/cn/#5ea2e0cde2
-
-示例
-
-https://huobiapi.github.io/docs/spot/v1/cn/#k
-
-https://api.huobi.pro/market/history/kline?symbol=btcusdt&period=1day&size=1
-
-https://vercel-serverless-openapi.vercel.app/api/huobi?api=market/history/kline&symbol=btcusdt&period=1day&size=1
+https://telegra.ph/file/603792faf40465069b472.png

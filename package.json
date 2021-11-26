@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "local": "vercel dev",
+    "local": "vercel dev --debug",
     "prod": "vercel --prod"
   },
   "author": "c",

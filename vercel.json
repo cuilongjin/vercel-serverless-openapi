@@ -1,17 +1,16 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "handle": "filesystem"
+      "source": "/telegra.ph/:match*",
+      "destination": "https://telegra.ph/:match*"
     },
     {
-      "src": "/tg(.*)",
-      "methods": ["GET"],
-      "dest": "api/tg/index.js"
+      "source": "/api.huobi.pro/:match*",
+      "destination": "https://api.huobi.pro/:match*"
     },
     {
-      "src": "/(.*)",
-      "status": 404,
-      "dest": "/404.html"
+      "source": "/(.*)",
+      "destination": "/404.html"
     }
   ]
 }
