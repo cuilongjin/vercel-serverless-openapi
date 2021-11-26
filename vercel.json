@@ -8,6 +8,23 @@
       "source": "/api.huobi.pro/:match*",
       "destination": "https://api.huobi.pro/:match*"
     },
+
+    {
+      "source": "/t.me/:match*",
+      "destination": "/api/proxy/:match*"
+    },
+    {
+      "source": "/telegram.org/css/:match*",
+      "destination": "https://telegram.org/css/:match*"
+    },
+    {
+      "source": "/telegram.org/js/:match*",
+      "destination": "https://telegram.org/js/:match*"
+    },
+    {
+      "source": "/oauth.tg.dev/js/:match*",
+      "destination": "https://oauth.tg.dev/js/:match*"
+    },
     {
       "source": "/(.*)",
       "destination": "/404.html"
