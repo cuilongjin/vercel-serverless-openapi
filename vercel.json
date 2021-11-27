@@ -1,14 +1,15 @@
 {
   "rewrites": [
     {
-      "source": "/telegra.ph/:match*",
+      "source": "/:match*",
+      "has": [{ "type": "host", "value": "telegra.ph.wqdy.top" }],
       "destination": "https://telegra.ph/:match*"
     },
     {
-      "source": "/api.huobi.pro/:match*",
+      "source": "/:match*",
+      "has": [{ "type": "host", "value": "api.huobi.pro.wqdy.top" }],
       "destination": "https://api.huobi.pro/:match*"
     },
-
     {
       "source": "/t.me/:match*",
       "destination": "/api/proxy/:match*"
