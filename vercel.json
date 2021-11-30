@@ -11,6 +11,10 @@
       "destination": "https://api.huobi.pro/:match*"
     },
     {
+      "source": "/gh/:match*",
+      "destination": "https://raw.githubusercontent.com/:match*"
+    },
+    {
       "source": "/t.me/:match*",
       "destination": "/api/proxy/:match*"
     },
