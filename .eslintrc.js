@@ -1,3 +1,6 @@
 module.exports = {
-  extends: ['wqdy']
+  extends: ['wqdy'],
+  rules: {
+    'unicorn/prevent-abbreviations': 0
+  }
 }
