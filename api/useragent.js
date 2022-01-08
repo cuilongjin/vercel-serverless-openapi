@@ -1,6 +1,9 @@
 // chrome Win
 export const chromeWin = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36'
 
+// chrome Win Android
+export const chromeWinAndroid = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Mobile Safari/537.36'
+
 // 今日头条 ios客户端
 export const toutiaoIOS = 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 NewsArticle/8.1.5.12 JsSdk/2.0 NetType/WIFI (News 8.1.5 14.100000)'
 
