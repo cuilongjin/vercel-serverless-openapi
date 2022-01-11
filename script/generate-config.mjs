@@ -2,9 +2,9 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import configStr from '../api/upload/config.js'
-import baseConfig from '../api/upload/base-config.js'
-import { randomWord } from './index.js'
+import configStr from '../config/upload/config.js'
+import baseConfig from '../config/upload/base-config.js'
+import { randomWord } from '../utils/index.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -25,6 +25,6 @@ if (currentDate !== lastDate) {
   config.lastTime = currentTime
 
   const contemt = `module.exports = '${JSON.stringify(config)}'`
-  const output = fs.createWriteStream(path.join(__dirname, '../api/upload/config.js'))
+  const output = fs.createWriteStream(path.join(__dirname, '../config/upload/config.js'))
   output.write(contemt + '\n')
 }
