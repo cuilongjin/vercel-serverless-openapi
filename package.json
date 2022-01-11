@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "local": "vercel dev --debug",
-    "prod": "vercel --prod"
+    "prod": "vercel --prod",
+    "g": "node ./utils/generate-config.mjs"
   },
   "author": "c",
   "license": "ISC",
