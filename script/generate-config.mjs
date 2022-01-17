@@ -27,4 +27,6 @@ if (currentDate !== lastDate) {
   const contemt = `module.exports = '${JSON.stringify(config)}'`
   const output = fs.createWriteStream(path.join(__dirname, '../config/upload/config.js'))
   output.write(contemt + '\n')
+} else {
+  // TODO:
 }
