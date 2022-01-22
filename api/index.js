@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 
+import config from '../config'
+
 const app = express()
 
 const whitelist = new Set(['http://localhost:8080'])
@@ -14,9 +16,16 @@ const corsOptions = {
   }
 }
 
-app.post('/api', cors(corsOptions), (request, response, next) => {
-  const { action } = request.query
-  response.status(200).send(action)
+app.post('/api', cors(corsOptions), async (request, response, next) => {
+  try {
+    const res = await config(request)
+    console.log('res', res)
+    if (res.code === 404) return response.status(404).send()
+    if (res.code === 500) return response.status(500).send()
+    response.json(res)
+  } catch (error) {
+    return response.status(500).send(error)
+  }
 })
 
 export default app
