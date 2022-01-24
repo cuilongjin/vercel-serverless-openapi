@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/api/upload/:match*", "destination": "/api/upload/" },
+    { "source": "/api/:match*", "destination": "/api/" },
     { "source": "/(.*)", "destination": "/api/404.js" }
   ]
 }
