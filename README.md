@@ -4,3 +4,7 @@
 vercel dev
 vercel --prod
 ```
+
+```
+node app.js
+```
