@@ -3,6 +3,7 @@ import cors from 'cors'
 
 import sub from '../config/sub/index.js'
 import upload from '../config/upload/index.js'
+import weixin from '../config/weixin/index.js'
 
 const app = express()
 
@@ -19,5 +20,6 @@ const corsOptions = {
 
 app.use('/', sub)
 app.use('/', upload)
+app.use('/', weixin)
 
 export default app
