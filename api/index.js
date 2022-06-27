@@ -7,7 +7,7 @@ import weixin from '../config/weixin/index.js'
 
 const app = express()
 
-const whitelist = new Set(['http://localhost:8080'])
+const whitelist = new Set([undefined, 'http://localhost:8081', 'http://localhost:3000'])
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.has(origin)) {
@@ -17,6 +17,10 @@ const corsOptions = {
     }
   }
 }
+
+app.all('*', cors(corsOptions), function (req, res, next) {
+  next()
+})
 
 app.use('/', sub)
 app.use('/', upload)
