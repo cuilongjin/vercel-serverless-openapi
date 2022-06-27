@@ -1,43 +1,31 @@
 import express from 'express'
-import jsdom from 'jsdom'
+import got from 'got'
 
-import { chromeWin } from '../../utils/useragent.js'
-
-const { JSDOM } = jsdom
 const routers = express.Router()
 
-routers.get('/api/weixin', async (request, response) => {
-  const url = request.query.url
-  const resourceLoader = new jsdom.ResourceLoader({
-    strictSSL: false,
-    userAgent: chromeWin
-  })
+// eslint-disable-next-line no-unused-vars
+function htmlDecode (str) {
+  return str
+    .replace(/&#39;/g, '\'')
+    .replace(/<br\s*(\/)?\s*>/g, '\n')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, '&')
+    .replace(/&nbsp;/g, ' ')
+}
 
-  const dom = await JSDOM.fromURL(url, {
-    resources: resourceLoader
-  })
+// eslint-disable-next-line no-extend-native
+String.prototype.html = function () {
+  return this.toString()
+}
+
+routers.get('/api/weixin', async (request, response) => {
+  const result = await got(request.query.url)
 
   const reg = /var.*(nickname|hd_head_img|msg_title|msg_desc|cdn_url_1_1).*=.*;/g
-
-  const match = dom.serialize().match(reg)
-  console.log(match)
-
-  // eslint-disable-next-line no-extend-native
-  String.prototype.html = function () {
-    return this.toString()
-  }
-
-  function htmlDecode (str) {
-    return str
-      .replace(/&#39;/g, '\'')
-      .replace(/<br\s*(\/)?\s*>/g, '\n')
-      .replace(/&nbsp;/g, ' ')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&quot;/g, '"')
-      .replace(/&amp;/g, '&')
-      .replace(/&nbsp;/g, ' ')
-  }
+  const match = result.body.match(reg)
 
   const obj = {}
   const tmp = {
@@ -47,26 +35,31 @@ routers.get('/api/weixin', async (request, response) => {
     msg_desc: 'desc',
     cdn_url_1_1: 'cover' // 封面
   }
+
   for (const item of match) {
     const str = item.slice(3, -1)
-    const arr = str.split('=')
-    obj[tmp[arr[0].trim()]] = arr[1].trim()
+    const index = str.search('=')
+
+    const key = tmp[str.slice(0, index).trim()]
+    const value = str.slice(index + 1).trim()
+
+    if (!key) continue
 
     try {
       // eslint-disable-next-line no-eval
-      obj[tmp[arr[0].trim()]] = eval(arr[1].trim())
+      obj[key] = eval(value)
     } catch {
-      obj[tmp[arr[0].trim()]] = arr[1].trim()
+      obj[key] = value
     }
   }
+
+  return response.json(obj)
 
   // const description = document.querySelector('meta[name="description"]')?.content
   // const title = document.querySelector('meta[property="og:title"]')?.content
   // const pic = document.querySelector('meta[property="og:image"]')?.content
   // const nickname = document.querySelector('.profile_nickname')?.textContent
   // const logo = document.querySelector('mpprofile')?.getAttribute('data-headimg')
-
-  response.json(obj)
 })
 
 export default routers
