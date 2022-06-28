@@ -24,13 +24,13 @@ String.prototype.html = function () {
 routers.get('/api/weixin', async (request, response) => {
   const result = await got(request.query.url)
 
-  const reg = /var.*(nickname|hd_head_img|msg_title|msg_desc|cdn_url_1_1).*=.*;/g
+  const reg = /var.*(nickname|round_head_img|msg_title|msg_desc|cdn_url_1_1).*=.*;/g
   const match = result.body.match(reg)
 
   const obj = {}
   const tmp = {
     nickname: 'name',
-    hd_head_img: 'headimg',
+    round_head_img: 'headimg',
     msg_title: 'title',
     msg_desc: 'desc',
     cdn_url_1_1: 'cover' // 封面
