@@ -1,5 +1,5 @@
 import got from 'got'
-import { githubConfig } from '../config'
+import { githubConfig } from '../config.js'
 export default async code => {
   const instance = got.extend({
     headers: {

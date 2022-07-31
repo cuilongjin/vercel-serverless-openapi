@@ -1,4 +1,4 @@
 export const githubConfig = {
-  client_id: 'eaae0e2551a9260d4b91',
-  client_secret: '897f7ea35c19b48385c6cc071ef276351c621a42'
+  client_id: 'Iv1.d09f858f30eada25',
+  client_secret: 'd104be6854b0168f3ab1b6c1cea9de3c1c2ec3d8'
 }
