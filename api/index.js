@@ -5,6 +5,7 @@ import sub from '../config/sub/index.js'
 import upload from '../config/upload/index.js'
 import weixin from '../config/weixin/index.js'
 import oauth from '../config/oauth/index.js'
+import dognote from '../config/dognote/index.js'
 
 const app = express()
 
@@ -27,5 +28,6 @@ app.use('/', sub)
 app.use('/', upload)
 app.use('/', weixin)
 app.use('/', oauth)
+app.use('/', dognote)
 
 export default app
