@@ -1,8 +1,9 @@
 # vercel-serverless-api
 
 ```
-vercel dev
-vercel --prod
+npm run env
+npm run local
+prod
 ```
 
 ```
