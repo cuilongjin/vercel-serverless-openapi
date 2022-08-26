@@ -1,11 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 
-import sub from '../config/sub/index.js'
-import upload from '../config/upload/index.js'
-import weixin from '../config/weixin/index.js'
-import oauth from '../config/oauth/index.js'
-import dognote from '../config/dognote/index.js'
+import routers from '../routers/index.js'
 
 const app = express()
 
@@ -24,10 +20,8 @@ app.all('*', cors(corsOptions), function (req, res, next) {
   next()
 })
 
-app.use('/', sub)
-app.use('/', upload)
-app.use('/', weixin)
-app.use('/', oauth)
-app.use('/', dognote)
+for (const router of routers) {
+  app.use('/', router)
+}
 
 export default app

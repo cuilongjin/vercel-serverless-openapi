@@ -54,12 +54,6 @@ routers.get('/api/weixin', async (request, response) => {
   }
 
   return response.json(obj)
-
-  // const description = document.querySelector('meta[name="description"]')?.content
-  // const title = document.querySelector('meta[property="og:title"]')?.content
-  // const pic = document.querySelector('meta[property="og:image"]')?.content
-  // const nickname = document.querySelector('.profile_nickname')?.textContent
-  // const logo = document.querySelector('mpprofile')?.getAttribute('data-headimg')
 })
 
 export default routers
