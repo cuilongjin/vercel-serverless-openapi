@@ -16,7 +16,7 @@ const corsOptions = {
   }
 }
 
-app.all('*', cors(corsOptions), function (req, res, next) {
+app.all('*', cors(corsOptions), function (_, __, next) {
   next()
 })
 

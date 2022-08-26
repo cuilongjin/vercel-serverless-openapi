@@ -21,7 +21,7 @@ String.prototype.html = function () {
   return this.toString()
 }
 
-routers.get('/api/weixin', async (request, response) => {
+routers.get('/weixin', async (request, response) => {
   const result = await got(request.query.url)
 
   const reg = /var.*(nickname|round_head_img|msg_title|msg_desc|cdn_url_1_1).*=.*;/g

@@ -3,7 +3,7 @@
 ```
 npm run env
 npm run local
-prod
+npm run prod
 ```
 
 ```
