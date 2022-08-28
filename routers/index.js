@@ -5,4 +5,11 @@ import oauth from './oauth/index.js'
 import dognote from './dognote/index.js'
 import _404 from './404/index.js'
 
-export default [sub, upload, weixin, oauth, dognote, _404]
+export default [
+  sub,
+  upload,
+  weixin,
+  oauth,
+  dognote,
+  _404
+]

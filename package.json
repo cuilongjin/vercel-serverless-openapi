@@ -12,6 +12,7 @@
   "author": "c",
   "license": "ISC",
   "devDependencies": {
+    "dotenv": "^16.0.1",
     "eslint-config-wqdy": "^0.0.2",
     "vercel": "^23.1.2"
   },
