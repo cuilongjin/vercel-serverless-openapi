@@ -1,20 +1,26 @@
 import express from 'express'
 
-import client from '../../db/client/index.js'
+import { Sequelize } from 'sequelize'
+const sequelize = new Sequelize(process.env.MYSQL_URL)
 
 const routers = express.Router()
 routers.get('/dognote', async (_, response) => {
-  let Client
   try {
-    Client = await client()
-    await Client.connect()
-    const dognotes = Client.db().collection('dognote')
+    await sequelize.authenticate()
+    const dognotes = sequelize.define('dognote', {}, {
+      tableName: 'dognote',
+      timestamps: false // 禁用时间戳
+    })
 
     // 获取一条随机数据
-    const dognote = (await dognotes.aggregate([{ $sample: { size: 1 } }]).toArray())[0]
+    const dognote = await dognotes.findOne({
+      attributes: ['note'],
+      order: sequelize.random(),
+      raw: true
+    })
     return response.json({ code: 0, data: dognote.note })
   } finally {
-    Client && await Client.close()
+    sequelize.close()
   }
 })
 
