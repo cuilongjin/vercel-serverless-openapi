@@ -1,6 +1,6 @@
 import express from 'express'
 
-import Sequelize from '../../db/client/sequelize.js'
+import Sequelize from '../../db/sqlite3/sequelize-sqlite.js'
 
 const routers = express.Router()
 routers.get('/dognote', async (_, response) => {
