@@ -1,4 +1,4 @@
-import sub from './sub/index.js'
+// import sub from './sub/index.js'
 import upload from './upload/index.js'
 import weixin from './weixin/index.js'
 import oauth from './oauth/index.js'
@@ -7,7 +7,7 @@ import proxy from './proxy/index.js'
 import _404 from './404/index.js'
 
 export default [
-  sub,
+  // sub,
   upload,
   weixin,
   oauth,
