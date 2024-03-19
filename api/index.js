@@ -5,7 +5,7 @@ import routers from '../routers/index.js'
 
 const app = express()
 
-const whitelist = new Set(process.env.CORS.split(',').map(item => item.trim()))
+const whitelist = new Set(process.env.CORS?.split(',').map(item => item.trim()))
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.has(origin) || !origin) {

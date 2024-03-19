@@ -1,4 +1,4 @@
-import Sequelize from '../../db/sqlite3/sequelize-sqlite.js'
+import Sequelize from '../../db/sqlite3/index.js'
 
 async function handler (request, response) {
   const match = request.query.match
